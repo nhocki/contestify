@@ -19,9 +19,15 @@ module Contestify
       @base_dir = Dir.pwd
       Contestify::Configuration.configure!(@base_dir)
       Contestify::Uploader.upload!(@judge_url, @judge_password, @base_dir)
+      clean_dir!
     end
 
     private ######################################################################## PRIVATE
+
+    def clean_dir!
+      puts red "Deleting created files & folders (#{@base_dir})"
+      FileUtils.rm_rf @base_dir
+    end
 
     def check_dependencies
       system?(:zip)       and
