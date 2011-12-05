@@ -2,11 +2,10 @@ module Contestify
   class Contest
     include Contestify::Util
 
-    attr_accessor :problems_url, :judge_url, :judge_password, :problem_index
+    attr_accessor :problems_url, :judge_url, :judge_password, :base_dir
 
     def initialize(problems_url, judge_url, judge_password)
       @problems_url, @judge_url, @judge_password = problems_url, judge_url, judge_password
-      @problem_index = 0
 
       if [@problems_url, @judge_url, @judge_password].any? {|attribute| attribute.nil? or attribute.empty?}
         raise Exception.new(Contestify::HELP_MESSAGE)
@@ -17,12 +16,16 @@ module Contestify
       check_dependencies
       get_problems
       unzip_problems
-      Contestify::Configuration.configure!(Dir.pwd)
+      @base_dir = Dir.pwd
+      puts yellow @base_dir
+      Contestify::Configuration.configure!(@base_dir)
+      Contestify::Uploader.upload!(@judge_url, @judge_password, @base_dir)
     end
 
     private ######################################################################## PRIVATE
 
     def check_dependencies
+      system?(:zip)       and
       system?(:curl)      and
       system?(:unzip)     and
       system?(:dos2unix)

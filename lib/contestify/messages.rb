@@ -17,4 +17,8 @@ module Contestify
   We couldn't unzip your files. Please verify that the download was succesful.
   TEXT
 
+  ZIP_PROBLEM = <<-TEXT
+  We couldn't zip your files. Please try again.
+  TEXT
+
 end
