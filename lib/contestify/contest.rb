@@ -76,12 +76,12 @@ module Contestify
     def add_problem_config(probid)
       puts blue "===> Adding DOM Judge configuration"
       file_content = <<-TEXT
-      probid = #{probid}
-      name = #{probid}
-      allow_submit = true
-      color = #{Contestify::PROBLEM_COLORS[@problem_index]}
-      timelimit = 1
-      TEXT
+probid = #{probid}
+name = #{probid}
+allow_submit = true
+color = #{Contestify::PROBLEM_COLORS[@problem_index]}
+timelimit = 1
+TEXT
       @problem_index += 1
       File.open(File.join(Dir.pwd, "domjudge-problem.ini"), 'w') {|f| f.write(file_content) }
     end
