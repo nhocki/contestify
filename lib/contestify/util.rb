@@ -1,12 +1,8 @@
 module Contestify
-  class Util
+  module Util
     def system?(command)
       `which #{command.to_s}`
-      $?.success?
-    end
-
-    def wget?
-      system?(:wget)
+      raise Exception.new(red "`#{command}` is not installed. Please install it first") unless $?.success?
     end
   end
 end

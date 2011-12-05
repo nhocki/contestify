@@ -1,4 +1,6 @@
 module Contestify
+  PROBLEM_COLORS = %w(blue red green yellow black pink purple gray orange white brown cyan)
+
   module  Colorize
     def colorize(text, color_code)
       "\033[#{color_code}m#{text}\033[0m"
