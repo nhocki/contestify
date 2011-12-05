@@ -1,7 +1,7 @@
 Contestify
 ====
 
-This is a simple ruby gem to automate the process of setting up a programming contest from a COCI problem set using DOMJudge.
+This is a simple ruby gem to automate the process of setting up a programming contest from a [COCI](http://www.hsin.hr/coci/) problem set using [DOMJudge](http://domjudge.sourceforge.net/).
 
 Usage
 ---
