@@ -17,7 +17,7 @@ module Contestify
       check_dependencies
       get_problems
       unzip_problems
-      configure_problems
+      Contestify::Configuration.configure!(Dir.pwd)
     end
 
     private ######################################################################## PRIVATE
@@ -41,10 +41,5 @@ module Contestify
       unzip_output = `unzip #{File.join(Dir.pwd, "problems.zip")}`
       raise Exception.new(red Contestify::UNZIP_PROBLEM) unless $?.success?
     end
-
-    def configure_problems
-      Contestify::Configuration.configure!(Dir.pwd)
-    end
-
   end
 end
