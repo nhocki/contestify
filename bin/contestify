@@ -7,7 +7,7 @@ judge_url       = ARGV[1]
 judge_password  = ARGV[2]
 
 begin
-  Contestify::Contest.new(problems_url, judge_url, judge_password).get_problems
+  Contestify::Contest.new(problems_url, judge_url, judge_password).setup!
 rescue Exception => e
   puts e.message
 end

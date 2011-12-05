@@ -10,6 +10,11 @@ module Contestify
       end
     end
 
+    def setup!
+      get_problems
+      unzip_problems
+    end
+
     def get_problems
       puts green "Fetching problems from #{@problems_url}"
       curl_output = `curl #{@problems_url} > #{File.join(Dir.pwd, "problems.zip")}`
