@@ -31,22 +31,24 @@ module Contestify
     def get_problems
       FileUtils.mkdir_p File.join(Dir.pwd, "contestify")
       Dir.chdir File.join(Dir.pwd, "contestify")
-      puts green "Fetching problems from #{@problems_url}"
+      puts green "=> Fetching problems from #{@problems_url}"
       curl_output = `curl #{@problems_url} > #{File.join(Dir.pwd, "problems.zip")}`
       raise Exception.new(red Contestify::CURL_PROBLEM) unless $?.success?
     end
 
     def unzip_problems
-      puts green "Unzipping problems"
+      puts green "=> Unzipping problems"
       unzip_output = `unzip #{File.join(Dir.pwd, "problems.zip")}`
       raise Exception.new(red Contestify::UNZIP_PROBLEM) unless $?.success?
     end
 
     def configure_problems
+      base_folder = Dir.pwd
+      puts green "=> Configuring problems"
       Dir.glob("*").select { |f| File.directory?(f) }.each do |dir|
-        puts dir
-        Dir.chdir File.join(base, dir)
+        Dir.chdir File.join(base_folder, dir)
         dirid = Dir.pwd.split('/').last[0...8]
+        puts green "==> #{dirid.upcase}"
       end
     end
   end
