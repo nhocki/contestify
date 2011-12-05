@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "contestify"
   gem.require_paths = ["lib"]
   gem.version       = Contestify::VERSION
+  
+  gem.add_development_dependency "rake", "~> 0.9.2"
 end
