@@ -12,12 +12,14 @@ module Contestify
 
     def get_problems
       puts green "Fetching problems from #{@problems_url}"
-      curl_output = `curl #{@problems_url} > problems.zip`
-      raise Exception.new(red Contestify::MESSAGE_PROBLEM) unless $?.success?
+      curl_output = `curl #{@problems_url} > #{File.join(Dir.pwd, "problems.zip")}`
+      raise Exception.new(red Contestify::CURL_PROBLEM) unless $?.success?
     end
 
     def unzip_problems
-      
+      puts green "Unzipping problems"
+      unzip_output = `unzip #{File.join(Dir.pwd, "problems.zip")}`
+      raise Exception.new(red Contestify::UNZIP_PROBLEM) unless $?.success?
     end
   end
 end
