@@ -1,3 +1,3 @@
 module Contestify
-  VERSION = "0.0.1alpha"
+  VERSION = "1.0.0"
 end
