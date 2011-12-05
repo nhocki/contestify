@@ -1,5 +1,9 @@
+require 'fileutils'
 require "contestify/version"
+require "contestify/messages"
+require "contestify/colorize"
+require "contestify/util"
+require "contestify/contest"
 
-module Contestify
-  # Your code goes here...
-end
+
+include Contestify::Colorize
