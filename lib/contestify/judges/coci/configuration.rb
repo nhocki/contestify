@@ -2,7 +2,7 @@ module Contestify
   module Coci
     # <tt>Coci::Configuration</tt> holds all the logic to configure a COCI based
     # contest. This class **must** implement the `self.configure!` method.
-    class Configuration < ::Contestify::Configuration
+    class Configuration
 
       # <tt>Contestify::Configuration.configure!</tt> is *the only* method you
       # should call from the contest interface. All the other methods should be
@@ -37,7 +37,10 @@ module Contestify
         end
       end
 
-      # <tt>Contestify::Configuration.rename_data_files</tt> is in charge of
+      #########################################################################
+      private #################################################################
+
+      # <tt>Coci::Configuration.rename_data_files</tt> is in charge of
       # giving each input/output file a standard name that DOMJudge understands.
       #
       # This method should be overriden in future strategies.
@@ -68,7 +71,7 @@ module Contestify
       end
 
 
-      # <tt>Contestify::Configuration.add_problem_config</tt> will add the
+      # <tt>Coci::Configuration.add_problem_config</tt> will add the
       # configuration file needed for DOMJudge to understand the problem.
       #
       # ==== Parameters
