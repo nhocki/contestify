@@ -2,12 +2,8 @@
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 require 'contestify'
 
-problems_url    = ARGV[0]
-judge_url       = ARGV[1]
-judge_password  = ARGV[2]
-
 begin
-  Contestify::Contest.new(problems_url, judge_url, judge_password).setup!
+  Contestify::Contest.start
 rescue Exception => e
   puts e.message
 end
