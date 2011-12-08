@@ -2,7 +2,7 @@ module Contestify
   # <tt>Contestify::Uploader</tt> is a simple class that will habdle the
   # uploading part to the server.
   class Uploader
-    # <tt>Contestify::Uploader</tt> is *the only* method you should call
+    # <tt>Contestify::Uploader.upload!</tt> is *the only* method you should call
     # to upload the problems to the server. It will receive 3 params.
     #
     # ==== Parameters
