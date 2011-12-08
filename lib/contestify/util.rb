@@ -7,7 +7,7 @@ module Contestify
 
     def clean_dir!(directory)
       puts red "Deleting created files & folders (#{directory})"
-      # FileUtils.rm_rf directory
+      FileUtils.rm_rf directory
     end
 
     def check_dependencies
