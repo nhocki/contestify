@@ -17,8 +17,8 @@ module Contestify
       get_problems
       unzip_problems
       @base_dir = Dir.pwd
-      Contestify::Configuration.configure!(@base_dir)
-      Contestify::Uploader.upload!(@judge_url, @judge_password, @base_dir)
+      problems_path = Contestify::Configuration.configure!(@base_dir)
+      Contestify::Uploader.upload!(@judge_url, @judge_password, problems_path)
       clean_dir!
     end
 
