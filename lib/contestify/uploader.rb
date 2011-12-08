@@ -31,7 +31,7 @@ module Contestify
         raise Exception.new(red Contestify::ZIP_PROBLEM) unless $?.success?
 
         puts blue "===> Uploading #{dir}/bundle.zip..."
-        # curl_output = system("curl -vv -F upload=Upload -F problem_archive=@bundle.zip --user admin:#{admin_pwd} #{server_url}")
+        curl_output = system("curl -vv -F upload=Upload -F problem_archive=@bundle.zip --user admin:#{admin_pwd} #{server_url}")
         puts blue "===> Upload done\n"
       end
 

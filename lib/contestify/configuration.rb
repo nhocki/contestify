@@ -78,7 +78,7 @@ module Contestify
     #
     # problem_index<Integer>:: This is the problem number. This is only used 
     #                          to choose the problem ballon color.
-    configuration
+
     def self.add_problem_config(probid, problem_index)
       puts blue "===> Adding DOM Judge configuration #{probid}"
       file_content = <<-TEXT
