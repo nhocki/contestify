@@ -1,0 +1,1 @@
+require 'contestify/judges/coci/coci'
