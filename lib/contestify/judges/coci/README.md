@@ -10,3 +10,5 @@ Note that the Judge URL is the actual **upload** URL, which is normally `http://
 Here's an example of usage with _real_ data:
 
     contestify http://hsin.hr/coci/contest1_testdata.zip http://domjudge.factorcomun.org/jury/problem.php p4ssw0rd
+
+This will get the .zip file from the `http://hsin.hr/coci/contest1_testdata.zip` and add the problems to the DOM Judge on the server. 

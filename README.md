@@ -1,28 +1,46 @@
 Contestify
-====
+=====
 
-This is a simple ruby gem to automate the process of setting up a programming contest from a [COCI](http://www.hsin.hr/coci/) problem set using [DOMJudge](http://domjudge.sourceforge.net/).
+This is a simple ruby gem to automate the process of setting up a programming contest with [DOMJudge](http://domjudge.sourceforge.net/). You can choose from several judges and the problems will be uploaded without too much work, because, let's be honest, DOMJudge is a great online judge, but it sucks at UI.
 
-Usage
+Install
 ---
 
+Installing Contestify couldn't be easier. Just type
+
+  gem install contestify
+
+Then, you can run `contestify check` to check the OS dependencies. Most Unix systems _should_ have the dependencies installed.
+
+Usage & Help
+---
+
+You can run the `contestify` command with no arguments to see the available judges. Each available judge will ask for different arguments. If you need help with a specific judge, you can type `contestify help <judge>` and it will give you some help about it.
+
 ```
-contestify coci_problems_url judge_upload_url judge_password
+  contestify help coci
 ```
 
-This will get the .zip file from the `coci_problems_url` and add the problems to the DOM Judge on the server. This **will not** create a new contest. Just add problems to the current one.
+Provide the requested data for each judge and it should run smoothly. It is important to notice that Contestify **DOES NOT** store **ANY** data. It asks for passwords just to be able to upload (and sometimes fetch) the problems. If you still doubt it, you can check the code for yourself.
 
-It is assumed that the admin username is `admin`.
 
-### Example
+Notes
+---
+
+* Contestify **will not** create a new contest. Just add problems to the current one. So you'll need to have an active contest to run this.
+
+* It is assumed that the **Admin username** is `admin`.
+
+Fast Example
+----
 
 ```
-contestify http://hsin.hr/coci/contest1_testdata.zip http://juez.factorcomun.org/jury/problem.php p4ssw0rd
+contestify coci http://hsin.hr/coci/contest1_testdata.zip http://juez.factorcomun.org/jury/problem.php p4ssw0rd
 ```
 
 Contributions
 ---
 
-If you find any bug or have any addition, please let us know. You can use the [issue tracker](https://github.com/nhocki/contestify/issues) for that. We would like to expand this script and be able to use any other problem (not just the ones from COCI).
+If you find any bug or have any addition, please let us know. You can use the [issue tracker](https://github.com/nhocki/contestify/issues) for that.
 
-This script was started by [Andrés Mejía](https://github.com/andmej). I added the config file option and gemified it.
+We would also love to have more and more judges, so if you want to write one, just submit a pull request with it.
