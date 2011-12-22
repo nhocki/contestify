@@ -9,6 +9,13 @@ module Contestify
       clean_dir! contest.working_root_path
     end
 
+    desc "local PROBLEMS_DIRECTORY JUDGE_UPLOAD_URL JUDGE_PASSWORD", "Setups a contest based on a local problemset"
+    def local(problems_path, judge_url, judge_password)
+      contest = Contestify::Judge::Local.new problems_path
+      Contestify::Uploader.upload!(judge_url, judge_password, contest.problems_paths)
+      clean_dir! contest.working_root_path
+    end
+    
     desc "check", "Checks that the user has the required OS software installed"
     def check
       check_dependencies
